@@ -1,0 +1,177 @@
+<?php
+require('../classes/classMZUY.php');
+$dxc = new DXCheck;
+$dxc->check_is_ajax(__FILE__); // prevent direct access
+$moduleid=59;
+
+require('conn/db.php');
+include('../components/check_session.php'); 
+require('../classes/empInfoClass.php');
+require('../classes/obClass.php');
+
+$nowdateunix = date("Y-m-d",time());	
+
+function alphanumericAndSpace($string) {
+    return preg_replace("/[^a-z0-9 ]/i", "", $string);
+}
+
+$obobj = new OB;
+$obobj->connStr = $conn;
+
+$myEmp = new Emp;
+$myEmp->connStr = $conn;
+$myEmp->user_id = $user_id;
+
+$getEmp = $myEmp->getEmp();
+if (!$getEmp) {
+    error_log("Database error in getEmp(): " . pg_last_error($conn));
+    die("Database error occurred");
+}
+$emp_id = pg_fetch_result($getEmp, 0, 'emp_id');
+
+$obobj->emp_id = $emp_id;
+
+$datefromsearch = date("Y-m-d", strtotime($_POST['datefromsearch']));
+$starttime = $_POST['starttime'];
+$endtime = $_POST['endtime'];
+$note = $_POST['note'];
+$myuserid = $_POST['myuserid'];
+$myact = $_POST['myact'];
+$doc_id = $_POST['doc_id'];
+$createdfor_empid = $_POST['employee_selectob'];
+
+// Validate and set defaults
+if (empty($datefromsearch)) $datefromsearch = $nowdateunix;
+if (empty($note)) $note = 'NULL';
+if (empty($starttime) || $starttime == "__:__") $starttime = null;
+if (empty($endtime) || $endtime == "__:__") $endtime = null;
+if (empty($myuserid)) $myuserid = 'NULL';
+if (empty($myact)) $myact = 'NULL';
+if (empty($createdfor_empid)) $createdfor_empid = 'NULL';
+
+// Generate form number
+if ($myact == 'ADD') {
+    $formNumber = 'OB-'.date('Ymds');
+} elseif ($myact == 'UPDATE') {
+    $formNumber = $doc_id;
+} else {
+    $formNumber = 'OB-'.date('Ymds');
+}
+
+// Get Schedule
+$getSchedule = $obobj->getSchedule();
+if (!$getSchedule) {
+    error_log("Database error in getSchedule(): " . pg_last_error($conn));
+    die("Database error occurred");
+}
+
+// Use null coalescing operator for safer fetching
+$sh_time_in = @pg_fetch_result($getSchedule, 0, 'time_in') ?: '00:00:00';
+$sh_time_out = @pg_fetch_result($getSchedule, 0, 'time_out') ?: '00:00:00';
+
+// Calculate total hours
+try {
+    $start = new DateTime($starttime);
+    $end = new DateTime($endtime);
+    $interval = $start->diff($end);
+    $total_hours = $interval->h + ($interval->i / 60);
+} catch (Exception $e) {
+    error_log("DateTime error: " . $e->getMessage());
+    $total_hours = 0;
+}
+
+// Get approver
+$getApprover = $obobj->getApprover();
+if (!$getApprover) {
+    error_log("Database error in getApprover(): " . pg_last_error($conn));
+    die("Database error occurred");
+}
+$approver_name = @pg_fetch_result($getApprover, 0, 'approver_name') ?: '';
+
+// Get creator
+$getCreatedBy = $obobj->getCreatedBy();
+if (!$getCreatedBy) {
+    error_log("Database error in getCreatedBy(): " . pg_last_error($conn));
+    die("Database error occurred");
+}
+$created_by = @pg_fetch_result($getCreatedBy, 0, 'created_by') ?: '';
+
+// Build data string in correct order matching database function parameters
+$data = implode('|', array_map('pg_escape_string', [
+    $formNumber,              // doc_id
+    $datefromsearch,         // date_ob
+    $starttime,              // start_ob
+    $endtime,               // end_ob
+    $sh_time_in,            // sched_start
+    $sh_time_out,           // sched_end
+    $total_hours,           // ot_count
+    $myuserid,              // userid
+    $myact,                 // act
+    $note,                  // remarks
+    $approver_name,         // username_approver
+    $created_by,            // username_created
+    $createdfor_empid,      // emp_id (Created for Employee ID)
+    ''                      // End marker
+]));
+
+$query = "SELECT hr_save_officialbusiness('$data') as x";
+error_log("Executing query: " . $query); // Log the query for debugging
+$result = pg_query($conn, $query);
+
+if (!$result) {
+    error_log("Error executing hr_save_officialbusiness: " . pg_last_error($conn));
+    echo "<div class='alert alert-danger'>";
+    echo "Database error occurred while saving OB. Please contact your administrator.";
+    echo "</div>";
+    die();
+}
+
+$notice = alphanumericAndSpace(trim(pg_last_notice($conn)));
+$notice = preg_replace('/\s+/', '', $notice);
+
+// Log the notice for debugging
+error_log("PostgreSQL Notice: " . $notice);
+
+if ($notice == "NOTICEADDED") {
+    echo "<div class='alert alert-info fade in'>";
+    echo "Your OB has been saved.";
+    echo "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+    echo "</div>";
+    ?>
+    <script type="text/javascript">
+        window.location.assign("hr_ob_main.php#pendingot");
+        setTimeout(function(){location.reload();}, 1000);
+    </script>
+    <?php
+} elseif ($notice == "NOTICEUPDATED") {
+    echo "<div class='alert alert-info fade in'>";
+    echo "Your OB has been updated.";
+    echo "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+    echo "</div>";
+    ?>
+    <script type="text/javascript">
+        window.location.assign("hr_ob_main.php#pendingot");
+        setTimeout(function(){location.reload();}, 1000);
+    </script>
+    <?php
+} else {
+    echo "<div class='alert alert-danger'>";
+    echo "Error in saving your OB, kindly check with your HRIS Admin.";
+    echo "</div>";
+    ?>
+    <script type="text/javascript">
+        $("#saveObBtn").prop('disabled', true);
+        window.location.assign("hr_ob_main.php#pendingot");
+        setTimeout(function(){location.reload();}, 1000);
+    </script>
+    <?php
+}
+?>
+<script type="text/javascript">
+    $("#saveObBtn").prop('disabled', true);
+    refreshdiv();		
+    showpending();									
+    $("#employee_selectob").change(function() {
+        setCreatedForEmpId();
+    });									
+ </script>	

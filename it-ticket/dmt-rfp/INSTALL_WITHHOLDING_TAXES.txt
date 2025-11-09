@@ -1,0 +1,175 @@
+================================================================================
+WITHHOLDING TAXES - DYNAMIC DROPDOWN FEATURE
+Installation Instructions
+================================================================================
+
+✅ WHAT WAS DONE:
+
+1. Created a new database table: `withholding_taxes`
+2. Added dynamic tax dropdown to all disbursement forms
+3. Created modal for adding new tax codes on-the-fly
+4. Updated tax calculation logic to use dynamic rates
+5. Pre-configured tax codes:
+   - WI011 - 15% PROFESSIONALS/TALENT FEES
+   - WC100 - 5% RENTALS
+   - WC158 - 1% GOODS
+   - WC160 - 2% SERVICES
+   - WC516 - 15% COMM, REBATES, DISCOUNTS
+   - And more...
+
+================================================================================
+INSTALLATION STEPS:
+================================================================================
+
+STEP 1: CREATE DATABASE TABLE
+------------------------------
+Open phpMyAdmin or your MySQL client and run this SQL:
+
+    SOURCE C:/xampp/htdocs/dmt/dmt-rfp/db/withholding_taxes.sql;
+
+OR manually:
+    1. Open phpMyAdmin
+    2. Select your database (e.g., techsources)
+    3. Click "Import" tab
+    4. Choose file: dmt-rfp/db/withholding_taxes.sql
+    5. Click "Go"
+
+STEP 2: VERIFY INSTALLATION
+----------------------------
+Run this query to check if it worked:
+
+    SELECT * FROM withholding_taxes;
+
+You should see 13 tax records.
+
+STEP 3: TEST THE FEATURE
+-------------------------
+1. Open: http://localhost/dmt/dmt-rfp/disbursement_form.php
+2. Scroll to "Item Details" section
+3. Look for "Withholding Tax/Final Tax" dropdown
+4. You should see the tax codes loaded
+5. Click the "+ Add" button to test adding new taxes
+
+================================================================================
+FILES CREATED/MODIFIED:
+================================================================================
+
+NEW FILES:
+----------
+✅ dmt-rfp/db/withholding_taxes.sql
+   - Database schema and seed data
+
+✅ dmt-rfp/modal_add_withholding_tax.php
+   - Modal dialog for adding new tax codes
+
+✅ dmt-rfp/save_withholding_tax.php
+   - Backend handler for saving new taxes
+
+✅ dmt-rfp/db/README_WITHHOLDING_TAXES.md
+   - Detailed documentation
+
+✅ dmt-rfp/INSTALL_WITHHOLDING_TAXES.txt
+   - This file (installation guide)
+
+MODIFIED FILES:
+--------------
+✅ dmt-rfp/disbursement_approver_edit_form.php
+   - Added withholding tax loading
+   - Updated dropdown to dynamic version
+   - Added "+ Add" button
+
+✅ dmt-rfp/disbursement_form.php
+   - Same updates as above
+
+✅ dmt-rfp/disbursement_edit_form.php
+   - Same updates as above
+
+✅ dmt-rfp/financial-form.js
+   - Updated tax calculation to use data-rate attributes
+   - Removed hardcoded switch statement
+
+================================================================================
+USAGE FOR END USERS:
+================================================================================
+
+SELECTING A TAX:
+----------------
+1. In the item details section, click the "Withholding Tax/Final Tax" dropdown
+2. Select the appropriate tax code
+3. Tax will be calculated automatically
+
+ADDING A NEW TAX:
+-----------------
+1. Click the "+ Add" button next to the dropdown
+2. Fill in the form:
+   - Tax Code: WC170 (uppercase letters and numbers)
+   - Tax Name: ADVERTISING SERVICES
+   - Tax Rate: 3.00 (enter as percentage)
+   - Tax Type: Withholding Tax or Final Tax
+3. Click "Save Tax"
+4. New tax is immediately available in the dropdown
+
+================================================================================
+TROUBLESHOOTING:
+================================================================================
+
+PROBLEM: Dropdown shows empty
+SOLUTION: 
+    - Verify table exists: SHOW TABLES LIKE 'withholding_taxes';
+    - Check for records: SELECT COUNT(*) FROM withholding_taxes;
+    - Verify database connection
+
+PROBLEM: "+ Add" button doesn't work
+SOLUTION:
+    - Check browser console for errors (F12 > Console)
+    - Verify jQuery is loaded
+    - Clear browser cache
+
+PROBLEM: Tax calculation not working
+SOLUTION:
+    - Clear browser cache
+    - Check console for JavaScript errors
+    - Verify financial-form.js is loaded
+
+PROBLEM: Cannot save new tax
+SOLUTION:
+    - Check if save_withholding_tax.php exists
+    - Verify file permissions (should be readable by web server)
+    - Check PHP error logs
+
+================================================================================
+TESTING CHECKLIST:
+================================================================================
+
+☐ 1. Database table created successfully
+☐ 2. Tax dropdown shows all predefined taxes
+☐ 3. "+ Add" button opens modal
+☐ 4. Can successfully add new tax code
+☐ 5. New tax appears in dropdown immediately
+☐ 6. Tax calculation works correctly
+☐ 7. Feature works on create form
+☐ 8. Feature works on edit form
+☐ 9. Feature works on approver edit form
+
+================================================================================
+FOR MORE INFORMATION:
+================================================================================
+
+Read the detailed documentation:
+    dmt-rfp/db/README_WITHHOLDING_TAXES.md
+
+Database schema details:
+    dmt-rfp/db/withholding_taxes.sql
+
+================================================================================
+SUPPORT:
+================================================================================
+
+If you encounter any issues:
+1. Check the browser console (F12 > Console tab)
+2. Check PHP error logs (usually in xampp/php/logs)
+3. Verify all files are in the correct location
+4. Make sure the database table was created successfully
+
+================================================================================
+

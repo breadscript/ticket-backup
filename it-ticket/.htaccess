@@ -1,0 +1,27 @@
+<IfModule mod_php.c>
+    # Per-directory PHP overrides (effective for Apache mod_php)
+    php_value max_file_uploads 2000
+    php_value upload_max_filesize 200M
+    php_value post_max_size 2000M
+    php_value max_input_vars 200000
+    php_value max_input_time -1
+    php_value max_execution_time 0
+    php_value memory_limit -1
+    php_flag file_uploads On
+</IfModule>
+
+# Allow large request bodies
+LimitRequestBody 0
+
+Options -Indexes
+ErrorDocument 404 /it-ticket/error_pages/error404.php
+ErrorDocument 403 /it-ticket/error_pages/error403.php
+ErrorDocument 500 /it-ticket/error_pages/error500.php
+
+
+
+
+
+
+
+

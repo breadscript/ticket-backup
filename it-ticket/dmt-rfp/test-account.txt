@@ -1,0 +1,30 @@
+http://172.16.4.44/dmt/dmt-rfp/login.php
+
+Requestor Accounts
+Name               Username      Password
+------------------------------------------------
+Michelle Ramirez   MRAMIREZ      TLCI
+Antonio Cruz       ACRUZ         TLCI
+Julia Reyes        JREYES        TLCI
+
+
+Cost Center Heads
+Department              Name               Username      Password
+-------------------------------------------------------------------
+Finance (FIN)           Adrian Flores      AFLORES       TLCI
+Accounting (ACC)        Carlo Dominguez    CDOMINGUEZ    TLCI
+Logistics (LOG)         Jerome Castillo    JCASTILLO     TLCI
+Purchasing (PR)         Diana Cruz         DCRUZ         TLCI
+Sales (SALES)           Patrick Gonzales   PGONZALES     TLCI
+Engineering (ENGR)      Samuel Torres      STORRES       TLCI
+Information Technology  Raymond Villanueva RVILLANUEVA   TLCI
+
+
+Additional Accounts
+Role             Username       Password
+----------------------------------------
+Accounting 1     ACCOUNTONE     TLCI
+Accounting 2     ACCOUNTTWO     TLCI
+Accounting 3     ACCOUNTTHREE   TLCI
+Controller       CONTROLLER     TLCI
+Cashier/Treasury CASHIER        TLCI

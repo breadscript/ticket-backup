@@ -1,0 +1,73 @@
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Files structure received in uploadAttachments",
+    "data": {
+        "name": [
+            "TLCI Cost Center Approvers - Copy.xlsx",
+            "TLCI Cost Center Approvers.xlsx",
+            "image.png",
+            "bill-preview.pdf"
+        ],
+        "type": [
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "image\/png",
+            "application\/pdf"
+        ],
+        "tmp_name": [
+            "C:\\xampp\\tmp\\php94A8.tmp",
+            "C:\\xampp\\tmp\\php94A9.tmp",
+            "C:\\xampp\\tmp\\php94AA.tmp",
+            "C:\\xampp\\tmp\\php94AB.tmp"
+        ],
+        "error": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "size": [
+            14339,
+            14339,
+            100620,
+            461099
+        ]
+    }
+}
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Processing 4 files for doc_number: ERGR-201302509191343, item_id: 122",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI Cost Center Approvers - Copy.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI Cost Center Approvers.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: image.png",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: bill-preview.pdf",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:46:26",
+    "class": "AttachmentHandler",
+    "message": "Upload result - Success: true, Files uploaded: 4, Errors: 0",
+    "data": null
+}

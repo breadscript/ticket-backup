@@ -1,0 +1,342 @@
+[
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "About to process 2 items",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Created item 0 with ID: 121",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Created item 1 with ID: 122",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "$_FILES[items_attachment] structure",
+        "data": {
+            "name": [
+                "SKM_36725070217281 (1).pdf",
+                "TLCI Cost Center Approvers_1 - Copy.xlsx",
+                "TLCI Cost Center Approvers_1.xlsx",
+                "error.docx",
+                "Savings.xlsx",
+                "TLCI DMS RFP Assumption - Copy.xlsx",
+                "TLCI DMS RFP Assumption.xlsx"
+            ],
+            "full_path": [
+                "SKM_36725070217281 (1).pdf",
+                "TLCI Cost Center Approvers_1 - Copy.xlsx",
+                "TLCI Cost Center Approvers_1.xlsx",
+                "error.docx",
+                "Savings.xlsx",
+                "TLCI DMS RFP Assumption - Copy.xlsx",
+                "TLCI DMS RFP Assumption.xlsx"
+            ],
+            "type": [
+                "application\/pdf",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            ],
+            "tmp_name": [
+                "C:\\xampp\\tmp\\php17D4.tmp",
+                "C:\\xampp\\tmp\\php17D5.tmp",
+                "C:\\xampp\\tmp\\php17D6.tmp",
+                "C:\\xampp\\tmp\\php17D7.tmp",
+                "C:\\xampp\\tmp\\php17D8.tmp",
+                "C:\\xampp\\tmp\\php17E9.tmp",
+                "C:\\xampp\\tmp\\php17EA.tmp"
+            ],
+            "error": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "size": [
+                157235,
+                17482,
+                17482,
+                163730,
+                11416,
+                56602,
+                56602
+            ]
+        }
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Total files received",
+        "data": 7
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Total items created",
+        "data": 2
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Item file counts from POST",
+        "data": []
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Files grouped by item",
+        "data": [
+            [
+                0,
+                1,
+                2,
+                3
+            ],
+            [
+                4,
+                5,
+                6
+            ]
+        ]
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Processing item 0 with 4 files (item_id: 121)",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Item 1 attachment data",
+        "data": {
+            "name": [
+                "SKM_36725070217281 (1).pdf",
+                "TLCI Cost Center Approvers_1 - Copy.xlsx",
+                "TLCI Cost Center Approvers_1.xlsx",
+                "error.docx"
+            ],
+            "type": [
+                "application\/pdf",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            ],
+            "tmp_name": [
+                "C:\\xampp\\tmp\\php17D4.tmp",
+                "C:\\xampp\\tmp\\php17D5.tmp",
+                "C:\\xampp\\tmp\\php17D6.tmp",
+                "C:\\xampp\\tmp\\php17D7.tmp"
+            ],
+            "error": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "size": [
+                157235,
+                17482,
+                17482,
+                163730
+            ]
+        }
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "uploadAttachments result for item 1",
+        "data": {
+            "success": true,
+            "uploaded_files": [
+                {
+                    "id": 134,
+                    "original_filename": "SKM_36725070217281 (1).pdf",
+                    "stored_filename": "68ccedd10fd78_1758260689.pdf",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd10fd78_1758260689.pdf",
+                    "file_size": 157235,
+                    "mime_type": "application\/pdf",
+                    "file_extension": "pdf"
+                },
+                {
+                    "id": 135,
+                    "original_filename": "TLCI Cost Center Approvers_1 - Copy.xlsx",
+                    "stored_filename": "68ccedd110d2a_1758260689.xlsx",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd110d2a_1758260689.xlsx",
+                    "file_size": 17482,
+                    "mime_type": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "file_extension": "xlsx"
+                },
+                {
+                    "id": 136,
+                    "original_filename": "TLCI Cost Center Approvers_1.xlsx",
+                    "stored_filename": "68ccedd11189c_1758260689.xlsx",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd11189c_1758260689.xlsx",
+                    "file_size": 17482,
+                    "mime_type": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "file_extension": "xlsx"
+                },
+                {
+                    "id": 137,
+                    "original_filename": "error.docx",
+                    "stored_filename": "68ccedd112385_1758260689.docx",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd112385_1758260689.docx",
+                    "file_size": 163730,
+                    "mime_type": "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    "file_extension": "docx"
+                }
+            ],
+            "errors": []
+        }
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Successfully uploaded 4 files for item 1",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: SKM_36725070217281 (1).pdf",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: TLCI Cost Center Approvers_1 - Copy.xlsx",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: TLCI Cost Center Approvers_1.xlsx",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: error.docx",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Processing item 1 with 3 files (item_id: 122)",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Item 2 attachment data",
+        "data": {
+            "name": [
+                "Savings.xlsx",
+                "TLCI DMS RFP Assumption - Copy.xlsx",
+                "TLCI DMS RFP Assumption.xlsx"
+            ],
+            "type": [
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            ],
+            "tmp_name": [
+                "C:\\xampp\\tmp\\php17D8.tmp",
+                "C:\\xampp\\tmp\\php17E9.tmp",
+                "C:\\xampp\\tmp\\php17EA.tmp"
+            ],
+            "error": [
+                0,
+                0,
+                0
+            ],
+            "size": [
+                11416,
+                56602,
+                56602
+            ]
+        }
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "uploadAttachments result for item 2",
+        "data": {
+            "success": true,
+            "uploaded_files": [
+                {
+                    "id": 138,
+                    "original_filename": "Savings.xlsx",
+                    "stored_filename": "68ccedd113b90_1758260689.xlsx",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd113b90_1758260689.xlsx",
+                    "file_size": 11416,
+                    "mime_type": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "file_extension": "xlsx"
+                },
+                {
+                    "id": 139,
+                    "original_filename": "TLCI DMS RFP Assumption - Copy.xlsx",
+                    "stored_filename": "68ccedd114510_1758260689.xlsx",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd114510_1758260689.xlsx",
+                    "file_size": 56602,
+                    "mime_type": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "file_extension": "xlsx"
+                },
+                {
+                    "id": 140,
+                    "original_filename": "TLCI DMS RFP Assumption.xlsx",
+                    "stored_filename": "68ccedd11524d_1758260689.xlsx",
+                    "file_path": "uploads\/financial_requests\/attachments\/68ccedd11524d_1758260689.xlsx",
+                    "file_size": 56602,
+                    "mime_type": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "file_extension": "xlsx"
+                }
+            ],
+            "errors": []
+        }
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Successfully uploaded 3 files for item 2",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: Savings.xlsx",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: TLCI DMS RFP Assumption - Copy.xlsx",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Uploaded file: TLCI DMS RFP Assumption.xlsx",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "FINAL SUMMARY - Financial request saved successfully",
+        "data": null
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Doc number",
+        "data": "ERGR-201302509191343"
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Financial request ID",
+        "data": 95
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Total items created",
+        "data": 2
+    },
+    {
+        "timestamp": "2025-09-19 07:44:49",
+        "message": "Item IDs",
+        "data": [
+            121,
+            122
+        ]
+    }
+]

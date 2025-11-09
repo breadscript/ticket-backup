@@ -1,0 +1,17 @@
+# PHP Configuration for Large File Uploads (200MB+)
+# Add these settings to your php.ini file or use this .htaccess file
+
+<IfModule mod_php.c>
+    # Align with project-wide limits for many small attachments
+    php_value max_file_uploads 2000
+    php_value upload_max_filesize 200M
+    php_value post_max_size 2000M
+    php_value max_input_vars 200000
+    php_value max_input_time -1
+    php_value max_execution_time 0
+    php_value memory_limit -1
+    php_flag  file_uploads On
+</IfModule>
+
+# Allow large request bodies
+LimitRequestBody 0

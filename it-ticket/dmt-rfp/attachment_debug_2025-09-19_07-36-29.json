@@ -1,0 +1,72 @@
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Files structure received in uploadAttachments",
+    "data": {
+        "name": "SKM_36725070217281 (1).pdf",
+        "type": "application\/pdf",
+        "tmp_name": "C:\\xampp\\tmp\\php797C.tmp",
+        "error": 0,
+        "size": 157235
+    }
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Converted single file to array structure",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Processing 1 files for doc_number: ERGR-201302509191332, item_id: 119",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: SKM_36725070217281 (1).pdf",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Upload result - Success: true, Files uploaded: 1, Errors: 0",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Files structure received in uploadAttachments",
+    "data": {
+        "name": "TLCI Cost Center Approvers_1 - Copy.xlsx",
+        "type": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "tmp_name": "C:\\xampp\\tmp\\php797D.tmp",
+        "error": 0,
+        "size": 17482
+    }
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Converted single file to array structure",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Processing 1 files for doc_number: ERGR-201302509191332, item_id: 120",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI Cost Center Approvers_1 - Copy.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:36:29",
+    "class": "AttachmentHandler",
+    "message": "Upload result - Success: true, Files uploaded: 1, Errors: 0",
+    "data": null
+}

@@ -1,0 +1,202 @@
+<?php
+/**
+* 
+*/
+class OB
+{
+    private $ob = [];
+    private $empleave = [];
+    private $holiday = [];
+    private $rest = [];
+
+    public function getOB()
+	{
+        $query = "SELECT a.id,a.doc_id, a.emp_id, a.date_ob, a.start_ob, a.end_ob, a.sched_start, a.sched_end, a.actual_in, a.actual_out, a.createdfor_empid
+                        ,a.status_id,ot_count, b.schedule_id, c.time_in, c.time_out, d.emp_last_name, d.emp_first_name, d.emp_pms_id
+                        ,a.status_id, e.status, a.remarks,g.emp_last_name AS approver_lname, g.emp_first_name AS approver_fname ,f.approver_1, 
+                        CONCAT(h.emp_last_name, ', ', h.emp_first_name) AS created_by_name
+                    
+                    FROM tk_ob a
+                    LEFT JOIN pr_sys_employee_schedule_setup b ON a.emp_id = b.empid
+                    LEFT JOIN sys_schedule c ON b.schedule_id = c.id
+                    LEFT JOIN pr_sys_employee d ON a.emp_id = d.emp_id
+                    LEFT JOIN sys_approval_status e ON e.id = a.status_id
+                    LEFT JOIN sys_approval_setup f ON f.empid = a.emp_id
+                    LEFT JOIN pr_sys_employee g ON f.approver_1 = g.emp_id
+                    LEFT JOIN pr_sys_employee h ON a.emp_id = h.emp_pms_id::integer
+                 
+                    
+                    
+                 
+                    $this->param
+                     ";
+		$result = pg_query($this->connStr, $query);
+
+            while ($row= pg_fetch_array($result, NULL, PGSQL_ASSOC)){	
+                //$row['tk_bioid']
+                $this->ob[] = [
+                    'id' => $row['id'],
+                    'doc_id' => $row['doc_id'],
+                    'date_ob' => $row['date_ob'],
+                    'start_ob' => $row['start_ob'],
+                    'end_ob' => $row['end_ob'],
+                    'sched_start' => $row['sched_start'],
+                    'sched_end' => $row['sched_end'],
+                    'actual_in' => $row['actual_in'],
+                    'actual_out' => $row['actual_out'],
+                    'ot_count' => $row['ot_count'],
+                    'time_in' => $row['time_in'],
+                    'time_out' => $row['time_out'],
+                    'approver_lname' => $row['approver_lname'],
+                    'approver_fname' => $row['approver_fname'],
+                    'time_out' => $row['time_out'],
+                    'remarks' => $row['remarks'],
+                    'status' => $row['status'],
+                    'emp_first_name' => $row['emp_first_name'],
+                    'emp_last_name' => $row['emp_last_name'],
+                    'createdfor_empid' => $row['createdfor_empid'],
+                    'created_by_name' => $row['created_by_name']
+                   
+                  
+                ];
+            }
+    }
+
+
+    public function getObTable() {
+        return $this->ob;
+    }
+
+    public function getSchedule()
+	{
+        $query = "SELECT b.time_in, b.time_out, a.empid
+                  FROM pr_sys_employee_schedule_setup a
+                  LEFT JOIN sys_schedule b ON b.id = a.schedule_id
+                  WHERE a.empid = $1";
+                  
+        // Use prepared statement to prevent SQL injection
+        $result = pg_query_params($this->connStr, $query, array($this->emp_id));
+        
+        if (!$result) {
+            error_log("getSchedule error: " . pg_last_error($this->connStr));
+            return false;
+        }
+        
+        return $result;
+    }
+
+    public function getApprover()
+	{
+        $query = "SELECT a.*, CONCAT(b.emp_last_name || ', ' || b.emp_first_name) AS approver_name
+                    FROM sys_approval_setup a
+                    LEFT JOIN pr_sys_employee b ON b.emp_pms_id::INTEGER = a.approver_1
+                    WHERE a.empid = '$this->emp_id'
+                ";
+		return $result = pg_query($this->connStr, $query);
+        
+    }
+
+       public function getCreatedBy()
+	{
+        $query = "SELECT CONCAT(a.emp_last_name || ', ' || a.emp_first_name) AS created_by
+                    FROM pr_sys_employee a
+                    WHERE a.emp_pms_id::integer = '$this->emp_id'
+                ";
+		return $result = pg_query($this->connStr, $query);
+        
+    }
+
+    public function getCreatedFor()
+	{
+        $query = "SELECT CONCAT(a.emp_last_name || ', ' || a.emp_first_name) AS created_for
+                    FROM pr_sys_employee a
+                    WHERE a.emp_id = '$this->emp_id'
+                ";
+		return $result = pg_query($this->connStr, $query);
+        
+    }
+
+
+    public function getLogsApprover()
+	{
+       $query = "SELECT doc_id,activity, username
+                    FROM tk_ob_logs a
+                    WHERE doc_id = '$this->_doc_id' AND activity = 'APPROVER'
+                ";
+		return $result = pg_query($this->connStr, $query);
+        
+    }
+
+    public function getOfficialbusinessById()
+	{
+        $query = "SELECT a.id,a.doc_id, a.emp_id, a.date_ot, a.start_ot, a.end_ot, a.sched_start, a.sched_end, a.actual_in, a.actual_out
+                        ,a.status_id,ot_count, b.schedule_id, c.time_in, c.time_out, d.emp_last_name, d.emp_first_name
+                        ,a.status_id, e.status, a.remarks
+                    FROM tk_ob a
+                    LEFT JOIN pr_sys_employee_schedule_setup b ON a.emp_id = b.empid
+                    LEFT JOIN sys_schedule c ON b.schedule_id = c.id
+                    LEFT JOIN pr_sys_employee d ON a.emp_id = d.emp_id
+                    LEFT JOIN sys_approval_status e ON e.id = a.status_id
+                    $this->param
+                     ";
+		return $result = pg_query($this->connStr, $query);
+       
+    }
+
+
+
+    public function getEmployeeNameById($emp_id)
+    {
+        $query = "SELECT emp_first_name, emp_last_name 
+                  FROM pr_sys_employee 
+                  WHERE emp_id = '$emp_id'";
+        $result = pg_query($this->connStr, $query);
+        
+        if ($result) {
+            $row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+            return [
+                'first_name' => $row['emp_first_name'],
+                'last_name' => $row['emp_last_name']
+            ];
+        } else {
+            // For debugging
+            error_log("Query failed: " . pg_last_error($this->connStr));
+            return null;
+        }
+    }
+
+    public function getEmployeeNameByCreatedForEmpId($emp_id)
+    {
+        // Validate emp_id is not empty
+        if (empty($emp_id)) {
+            return null;
+        }
+
+        $query = "SELECT e.emp_first_name, e.emp_last_name 
+                  FROM tk_ob l
+                  JOIN pr_sys_employee e ON e.emp_id = l.createdfor_empid
+                  WHERE l.createdfor_empid = '$emp_id'";
+        $result = pg_query($this->connStr, $query);
+        
+        if ($result) {
+            $employees = [];
+            while ($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
+                $employees[] = [
+                    'first_name' => $row['emp_first_name'],
+                    'last_name' => $row['emp_last_name']
+                ];
+            }
+            return $employees;
+        } else {
+            // For debugging
+            error_log("Query failed: " . pg_last_error($this->connStr));
+            return null;
+        }
+    }
+
+   
+
+}
+
+
+?>

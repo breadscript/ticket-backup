@@ -1,0 +1,135 @@
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Files structure received in uploadAttachments",
+    "data": {
+        "name": [
+            "SKM_36725070217281 (1).pdf",
+            "TLCI Cost Center Approvers_1 - Copy.xlsx",
+            "TLCI Cost Center Approvers_1.xlsx",
+            "error.docx"
+        ],
+        "type": [
+            "application\/pdf",
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application\/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        ],
+        "tmp_name": [
+            "C:\\xampp\\tmp\\php17D4.tmp",
+            "C:\\xampp\\tmp\\php17D5.tmp",
+            "C:\\xampp\\tmp\\php17D6.tmp",
+            "C:\\xampp\\tmp\\php17D7.tmp"
+        ],
+        "error": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "size": [
+            157235,
+            17482,
+            17482,
+            163730
+        ]
+    }
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Processing 4 files for doc_number: ERGR-201302509191343, item_id: 121",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: SKM_36725070217281 (1).pdf",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI Cost Center Approvers_1 - Copy.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI Cost Center Approvers_1.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: error.docx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Upload result - Success: true, Files uploaded: 4, Errors: 0",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Files structure received in uploadAttachments",
+    "data": {
+        "name": [
+            "Savings.xlsx",
+            "TLCI DMS RFP Assumption - Copy.xlsx",
+            "TLCI DMS RFP Assumption.xlsx"
+        ],
+        "type": [
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "tmp_name": [
+            "C:\\xampp\\tmp\\php17D8.tmp",
+            "C:\\xampp\\tmp\\php17E9.tmp",
+            "C:\\xampp\\tmp\\php17EA.tmp"
+        ],
+        "error": [
+            0,
+            0,
+            0
+        ],
+        "size": [
+            11416,
+            56602,
+            56602
+        ]
+    }
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Processing 3 files for doc_number: ERGR-201302509191343, item_id: 122",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: Savings.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI DMS RFP Assumption - Copy.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Successfully uploaded file: TLCI DMS RFP Assumption.xlsx",
+    "data": null
+}
+{
+    "timestamp": "2025-09-19 07:44:49",
+    "class": "AttachmentHandler",
+    "message": "Upload result - Success: true, Files uploaded: 3, Errors: 0",
+    "data": null
+}
